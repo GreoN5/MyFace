@@ -19,6 +19,24 @@ body {
   background-color: var(--background-color-body);
 }
 
+button {
+  position: absolute;
+  bottom: 10%;
+  left: 20%;
+  font-size: 1.5em;
+  font-weight: 900;
+  width: 6em;
+  height: 2em;
+  border: 0.5px solid silver;
+  border-radius: 10px;
+  box-shadow: 3px 4px 2px darkgray;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 .head {
   background-color: var(--skin-primary-color);
   width: 20vw;
@@ -106,6 +124,60 @@ body {
   border-radius: 20% 20% 100% 100%;
 }
 
+.smile {
+  animation: smile 2s linear forwards;
+}
+
+.stop-smile {
+  animation: stop-smile 2s linear forwards;
+}
+
+@keyframes smile {
+  5% {
+    border-top: 2px solid var(--skin-secondary-color);
+    border-right: 1px solid var(--skin-secondary-color);
+    border-left: 1px solid var(--skin-secondary-color);
+    border-bottom: 3px solid var(--skin-secondary-color);
+    background-color: white;
+  }
+
+  25% {
+    width: 7em;
+    height: 1em;
+  }
+
+  40% {
+    height: 1.5em;
+  }
+
+  50% {
+    height: 2em;
+  }
+
+  60% {
+    width: 7.5em;
+    height: 2.5em;
+  }
+
+  75% {
+    width: 8em;
+    height: 3em;
+  }
+
+  100% {
+    width: 8.5em;
+    height: 3.5em;
+    border-top: 2px solid var(--skin-secondary-color);
+    border-right: 1px solid var(--skin-secondary-color);
+    border-left: 1px solid var(--skin-secondary-color);
+    border-bottom: 3px solid var(--skin-secondary-color);
+    background-color: white;
+  }
+}
+
+@keyframes stop-smile {
+}
+
 .ears {
   z-index: -1;
   position: absolute;
@@ -129,7 +201,7 @@ body {
 .hair {
   position: absolute;
   width: 20vw;
-  height: 13vh;
+  height: 15vh;
   background-color: black;
   margin-bottom: 19.5em;
   border-radius: 100% 100% 0 0;
