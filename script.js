@@ -1,24 +1,69 @@
 const mouthSmile = document.getElementById("mouth");
 const centeredEyes = document.getElementById("eyes");
+const iris = document.querySelectorAll("[id=iris]");
+const pupil = document.querySelectorAll("[id=pupil]");
 
 function smile() {
-    clearClasses();
+    clearClassesMouth();
     mouthSmile.classList.add("smile");
 }
 
 function stopSmile() {
-    clearClasses();
+    clearClassesMouth();
     mouthSmile.classList.add("stop-smile");
 }
 
 function centerEyes() {
+    clearClassesEyes();
     centeredEyes.classList.add("centered-eyes");
 }
 
-function clearClasses() {
+function lookBack() {
+    clearClassesEyes();
+    lookBackIris();
+    lookBackPupil();
+}
+
+function lookBackIris() {
+    for (let i = 0; i < iris.length; i++) {
+        iris[i].classList.add("look-back-iris");
+    }
+}
+
+function lookBackPupil() {
+    for (let i = 0; i < pupil.length; i++) {
+        pupil[i].classList.add("look-back-pupil");
+    }
+}
+
+function clearClassesMouth() {
     for (let i = 0; i < mouthSmile.classList.length; i++) {
         if (mouthSmile.classList[i] != "mouth") {
             mouthSmile.classList.remove(mouthSmile.classList[i]);
+        }
+    }
+}
+
+function clearClassesEyes() {
+    for (let i = 0; i < centeredEyes.classList.length; i++) {
+        if (centeredEyes.classList[i] != "eyes") {
+            centeredEyes.classList.remove(centeredEyes.classList[i]);
+        }
+    }
+
+    for (let i = 0; i < iris.length; i++) {
+        for (let j = 0; j < iris[i].classList.length; j++) {
+            if (iris[i].classList[j] != "iris") {
+                iris[i].classList.remove(iris[i].classList[j]);
+            }
+        }
+    }
+
+    for (let i = 0; i < pupil.length; i++) {
+        for (let j = 0; j < pupil[i].classList.length; j++) {
+            if (pupil[i].classList[j] != "pupil") {
+                pupil[i].classList.remove(pupil[i].classList[j]);
+            }
         }
     }
 }

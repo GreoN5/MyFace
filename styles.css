@@ -24,7 +24,7 @@ button {
   font-size: 1.5em;
   font-weight: 900;
   width: 6em;
-  height: 2em;
+  height: 2.5em;
   border: 0.5px solid silver;
   border-radius: 10px;
   box-shadow: 3px 4px 2px darkgray;
@@ -78,8 +78,7 @@ button:hover {
   overflow: hidden;
 }
 
-.eye::before {
-  content: "";
+.pupil {
   position: absolute;
   width: 2.5vw;
   height: 4.2vh;
@@ -90,8 +89,7 @@ button:hover {
   animation: center-eyes 1s linear forwards;
 }
 
-.eye::after {
-  content: "";
+.iris {
   position: absolute;
   width: 1vw;
   height: 1.7vh;
@@ -99,13 +97,43 @@ button:hover {
   border-radius: 100%;
   margin-right: 1em;
   margin-bottom: 0.5em;
+  z-index: 1;
   animation: center-eyes 1s linear forwards;
+}
+
+.look-back-iris {
+  animation: iris 1s linear forwards;
+}
+
+.look-back-pupil {
+  animation: pupil 1s linear forwards;
+}
+
+@keyframes iris {
+  0% {
+    margin: 0;
+  }
+
+  100% {
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+  }
+}
+
+@keyframes pupil {
+  0% {
+    margin: 0;
+  }
+
+  100% {
+    margin-right: 0.6em;
+    margin-bottom: 0.15em;
+  }
 }
 
 @keyframes center-eyes {
   100% {
-    margin-right: 0;
-    margin-bottom: 0;
+    margin: 0;
   }
 }
 
