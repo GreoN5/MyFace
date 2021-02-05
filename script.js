@@ -1,5 +1,7 @@
 const mouthSmile = document.getElementById("mouth");
 const centeredEyes = document.getElementById("eyes");
+const leftEye = document.getElementById("left-eye");
+
 const iris = document.querySelectorAll("[id=iris]");
 const pupil = document.querySelectorAll("[id=pupil]");
 
@@ -15,13 +17,30 @@ function stopSmile() {
 
 function centerEyes() {
     clearClassesEyes();
-    centeredEyes.classList.add("centered-eyes");
+    centerIris();
+    centerPupil();
+}
+
+function winkLeftEye() {
+    leftEye.classList.add("wink-left-eye");
 }
 
 function lookBack() {
     clearClassesEyes();
     lookBackIris();
     lookBackPupil();
+}
+
+function centerIris() {
+    for (let i = 0; i < iris.length; i++) {
+        iris[i].classList.add("center-eyes");
+    }
+}
+
+function centerPupil() {
+    for (let i = 0; i < pupil.length; i++) {
+        pupil[i].classList.add("center-eyes");
+    }
 }
 
 function lookBackIris() {
@@ -51,6 +70,11 @@ function clearClassesEyes() {
         }
     }
 
+    clearClassesPupil();
+    clearClassesIris();
+}
+
+function clearClassesIris() {
     for (let i = 0; i < iris.length; i++) {
         for (let j = 0; j < iris[i].classList.length; j++) {
             if (iris[i].classList[j] != "iris") {
@@ -58,7 +82,9 @@ function clearClassesEyes() {
             }
         }
     }
+}
 
+function clearClassesPupil() {
     for (let i = 0; i < pupil.length; i++) {
         for (let j = 0; j < pupil[i].classList.length; j++) {
             if (pupil[i].classList[j] != "pupil") {

@@ -78,6 +78,27 @@ button:hover {
   overflow: hidden;
 }
 
+.wink-left-eye {
+  animation: wink 1s linear;
+}
+
+@keyframes wink {
+  0% {
+    height: 4.5vh;
+    margin-top: 0.5em;
+  }
+
+  50% {
+    height: 2vh;
+    margin-top: 1em;
+  }
+
+  100% {
+    height: 0vh;
+    margin-top: 1em;
+  }
+}
+
 .pupil {
   position: absolute;
   width: 2.5vw;
@@ -86,7 +107,6 @@ button:hover {
   border-radius: 100%;
   margin-right: 0.6em;
   margin-bottom: 0.15em;
-  animation: center-eyes 1s linear forwards;
 }
 
 .iris {
@@ -98,43 +118,6 @@ button:hover {
   margin-right: 1em;
   margin-bottom: 0.5em;
   z-index: 1;
-  animation: center-eyes 1s linear forwards;
-}
-
-.look-back-iris {
-  animation: iris 1s linear forwards;
-}
-
-.look-back-pupil {
-  animation: pupil 1s linear forwards;
-}
-
-@keyframes iris {
-  0% {
-    margin: 0;
-  }
-
-  100% {
-    margin-right: 1em;
-    margin-bottom: 0.5em;
-  }
-}
-
-@keyframes pupil {
-  0% {
-    margin: 0;
-  }
-
-  100% {
-    margin-right: 0.6em;
-    margin-bottom: 0.15em;
-  }
-}
-
-@keyframes center-eyes {
-  100% {
-    margin: 0;
-  }
 }
 
 .eyebrow {
@@ -162,6 +145,84 @@ button:hover {
   background-color: var(--skin-secondary-color);
   margin-top: 15em;
   border-radius: 20% 20% 100% 100%;
+}
+
+.ears {
+  z-index: -1;
+  position: absolute;
+  width: 22vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ear {
+  width: 1.5em;
+  height: 5em;
+  background-color: var(--ear-color);
+  border-radius: 0 100% 100% 0;
+  border: 3px solid var(--skin-secondary-color);
+}
+
+.ear:first-child {
+  border-radius: 100% 0 0 100%;
+}
+
+.hair {
+  position: absolute;
+  width: 20vw;
+  height: 15vh;
+  background-color: black;
+  margin-bottom: 19.5em;
+  border-radius: 100% 100% 0 0;
+}
+
+.hair::before,
+.hair::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: 11vh;
+  width: 0.7vw;
+  transform: translateY(100%);
+}
+
+.hair::after {
+  right: 0;
+}
+
+.hair-corner {
+  position: absolute;
+  width: 100%;
+}
+
+.hair-corner::before,
+.hair-corner::after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 2em;
+  transform: rotate(45deg);
+  background-color: black;
+  top: 7em;
+  left: 0.6em;
+}
+
+.hair-corner::after {
+  left: initial;
+  right: 0.6em;
+  transform: rotate(-45deg);
+}
+
+.center-eyes {
+  animation: center-eyes 1s linear forwards;
+}
+
+.look-back-iris {
+  animation: look-back-iris 1s linear forwards;
+}
+
+.look-back-pupil {
+  animation: look-back-pupil 1s linear forwards;
 }
 
 .smile {
@@ -246,68 +307,30 @@ button:hover {
   }
 }
 
-.ears {
-  z-index: -1;
-  position: absolute;
-  width: 22vw;
-  display: flex;
-  justify-content: space-between;
+@keyframes look-back-iris {
+  0% {
+    margin: 0;
+  }
+
+  100% {
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+  }
 }
 
-.ear {
-  width: 1.5em;
-  height: 5em;
-  background-color: var(--ear-color);
-  border-radius: 0 100% 100% 0;
-  border: 3px solid var(--skin-secondary-color);
+@keyframes look-back-pupil {
+  0% {
+    margin: 0;
+  }
+
+  100% {
+    margin-right: 0.6em;
+    margin-bottom: 0.15em;
+  }
 }
 
-.ear:first-child {
-  border-radius: 100% 0 0 100%;
-}
-
-.hair {
-  position: absolute;
-  width: 20vw;
-  height: 15vh;
-  background-color: black;
-  margin-bottom: 19.5em;
-  border-radius: 100% 100% 0 0;
-}
-
-.hair::before,
-.hair::after {
-  content: "";
-  position: absolute;
-  background-color: black;
-  height: 11vh;
-  width: 0.7vw;
-  transform: translateY(100%);
-}
-
-.hair::after {
-  right: 0;
-}
-
-.hair-corner {
-  position: absolute;
-  width: 100%;
-}
-
-.hair-corner::before,
-.hair-corner::after {
-  content: "";
-  position: absolute;
-  width: 1em;
-  height: 2em;
-  transform: rotate(45deg);
-  background-color: black;
-  top: 7em;
-  left: 0.6em;
-}
-
-.hair-corner::after {
-  left: initial;
-  right: 0.6em;
-  transform: rotate(-45deg);
+@keyframes center-eyes {
+  100% {
+    margin: 0;
+  }
 }
